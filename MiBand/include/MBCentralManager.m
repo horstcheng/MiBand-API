@@ -80,7 +80,7 @@ static char *const kQueueLabel = "com.esoftmobile.miband";
         MBPeripheral *peripheral = [weakSelf findPeripheral:cbPeripheral];
         if (!peripheral) {
             peripheral = [[MBPeripheral alloc] initWithPeripheral:cbPeripheral centralManager:weakSelf];
-            if (![weakSelf.peripherals containsObject:peripheral]) {
+            if (![weakSelf.discoveredPeripherals containsObject:peripheral]) {
                 [weakSelf.discoveredPeripherals addObject:peripheral];
             }
         }
@@ -93,7 +93,7 @@ static char *const kQueueLabel = "com.esoftmobile.miband";
 - (MBPeripheral *)findPeripheral:(CBPeripheral *)cbPeripheral {
     MBPeripheral *result = nil;
     
-    NSArray *cachedPeripherals = [self.peripherals copy];
+    NSArray *cachedPeripherals = [self.discoveredPeripherals copy];
     for (MBPeripheral *peripheral in cachedPeripherals) {
         if (peripheral.cbPeripheral == cbPeripheral) {
             result = peripheral;
