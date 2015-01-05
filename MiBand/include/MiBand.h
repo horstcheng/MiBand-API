@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 esoftmobile.com. All rights reserved.
 //
 
-#ifndef MiBandApiSample_MiBand_h
-#define MiBandApiSample_MiBand_h
+#ifndef MiBand_h
+#define MiBand_h
 
 #import "MBCentralManager.h"
 #import "MBPeripheral.h"
