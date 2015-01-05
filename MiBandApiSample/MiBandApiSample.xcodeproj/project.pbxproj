@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9F9829331A53B6190076AA4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9829321A53B6190076AA4A /* main.m */; };
+		9F9829361A53B6190076AA4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9829351A53B6190076AA4A /* AppDelegate.m */; };
+		9F9829391A53B6190076AA4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9829381A53B6190076AA4A /* ViewController.m */; };
+		9F98293C1A53B6190076AA4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F98293A1A53B6190076AA4A /* Main.storyboard */; };
+		9F98293E1A53B6190076AA4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F98293D1A53B6190076AA4A /* Images.xcassets */; };
+		9F9829411A53B6190076AA4A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F98293F1A53B6190076AA4A /* LaunchScreen.xib */; };
+		9F98294D1A53B6190076AA4A /* MiBandApiSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F98294C1A53B6190076AA4A /* MiBandApiSampleTests.m */; };
+		9F9829571A53B6300076AA4A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9829561A53B6300076AA4A /* CoreBluetooth.framework */; };
+		9FA634ED1A5A97FF00E9850F /* MBCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634CD1A5A97FF00E9850F /* MBCentralManager.m */; };
+		9FA634EE1A5A97FF00E9850F /* MBPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634CF1A5A97FF00E9850F /* MBPeripheral.m */; };
+		9FA634EF1A5A97FF00E9850F /* MBActivityDataFragmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634D31A5A97FF00E9850F /* MBActivityDataFragmentModel.m */; };
+		9FA634F01A5A97FF00E9850F /* MBActivityDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634D51A5A97FF00E9850F /* MBActivityDataModel.m */; };
+		9FA634F11A5A97FF00E9850F /* MBActivityDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634D71A5A97FF00E9850F /* MBActivityDataReader.m */; };
+		9FA634F21A5A97FF00E9850F /* MBAlarmClockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634D91A5A97FF00E9850F /* MBAlarmClockModel.m */; };
+		9FA634F31A5A97FF00E9850F /* MBBatteryInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634DB1A5A97FF00E9850F /* MBBatteryInfoModel.m */; };
+		9FA634F41A5A97FF00E9850F /* MBDateTimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634DD1A5A97FF00E9850F /* MBDateTimeModel.m */; };
+		9FA634F51A5A97FF00E9850F /* MBDeviceInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634DF1A5A97FF00E9850F /* MBDeviceInfoModel.m */; };
+		9FA634F61A5A97FF00E9850F /* MBLEParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634E11A5A97FF00E9850F /* MBLEParamsModel.m */; };
+		9FA634F71A5A97FF00E9850F /* MBStatisticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634E31A5A97FF00E9850F /* MBStatisticsModel.m */; };
+		9FA634F81A5A97FF00E9850F /* MBUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634E51A5A97FF00E9850F /* MBUserInfoModel.m */; };
+		9FA634F91A5A97FF00E9850F /* MBDataBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634E81A5A97FF00E9850F /* MBDataBuilder.m */; };
+		9FA634FA1A5A97FF00E9850F /* MBDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634EA1A5A97FF00E9850F /* MBDataReader.m */; };
+		9FA634FB1A5A97FF00E9850F /* MBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634EC1A5A97FF00E9850F /* MBHelper.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9F9829471A53B6190076AA4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F9829251A53B6190076AA4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F98292C1A53B6190076AA4A;
+			remoteInfo = MiBandApiSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9F98292D1A53B6190076AA4A /* MiBandApiSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiBandApiSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F9829311A53B6190076AA4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F9829321A53B6190076AA4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9F9829341A53B6190076AA4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9F9829351A53B6190076AA4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9F9829371A53B6190076AA4A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9F9829381A53B6190076AA4A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9F98293B1A53B6190076AA4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9F98293D1A53B6190076AA4A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9F9829401A53B6190076AA4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9F9829461A53B6190076AA4A /* MiBandApiSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiBandApiSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F98294B1A53B6190076AA4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F98294C1A53B6190076AA4A /* MiBandApiSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiBandApiSampleTests.m; sourceTree = "<group>"; };
+		9F9829561A53B6300076AA4A /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		9FA634CC1A5A97FF00E9850F /* MBCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCentralManager.h; sourceTree = "<group>"; };
+		9FA634CD1A5A97FF00E9850F /* MBCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCentralManager.m; sourceTree = "<group>"; };
+		9FA634CE1A5A97FF00E9850F /* MBPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPeripheral.h; sourceTree = "<group>"; };
+		9FA634CF1A5A97FF00E9850F /* MBPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPeripheral.m; sourceTree = "<group>"; };
+		9FA634D01A5A97FF00E9850F /* MiBand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiBand.h; sourceTree = "<group>"; };
+		9FA634D21A5A97FF00E9850F /* MBActivityDataFragmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBActivityDataFragmentModel.h; sourceTree = "<group>"; };
+		9FA634D31A5A97FF00E9850F /* MBActivityDataFragmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBActivityDataFragmentModel.m; sourceTree = "<group>"; };
+		9FA634D41A5A97FF00E9850F /* MBActivityDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBActivityDataModel.h; sourceTree = "<group>"; };
+		9FA634D51A5A97FF00E9850F /* MBActivityDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBActivityDataModel.m; sourceTree = "<group>"; };
+		9FA634D61A5A97FF00E9850F /* MBActivityDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBActivityDataReader.h; sourceTree = "<group>"; };
+		9FA634D71A5A97FF00E9850F /* MBActivityDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBActivityDataReader.m; sourceTree = "<group>"; };
+		9FA634D81A5A97FF00E9850F /* MBAlarmClockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAlarmClockModel.h; sourceTree = "<group>"; };
+		9FA634D91A5A97FF00E9850F /* MBAlarmClockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAlarmClockModel.m; sourceTree = "<group>"; };
+		9FA634DA1A5A97FF00E9850F /* MBBatteryInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBBatteryInfoModel.h; sourceTree = "<group>"; };
+		9FA634DB1A5A97FF00E9850F /* MBBatteryInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBBatteryInfoModel.m; sourceTree = "<group>"; };
+		9FA634DC1A5A97FF00E9850F /* MBDateTimeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDateTimeModel.h; sourceTree = "<group>"; };
+		9FA634DD1A5A97FF00E9850F /* MBDateTimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDateTimeModel.m; sourceTree = "<group>"; };
+		9FA634DE1A5A97FF00E9850F /* MBDeviceInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDeviceInfoModel.h; sourceTree = "<group>"; };
+		9FA634DF1A5A97FF00E9850F /* MBDeviceInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDeviceInfoModel.m; sourceTree = "<group>"; };
+		9FA634E01A5A97FF00E9850F /* MBLEParamsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLEParamsModel.h; sourceTree = "<group>"; };
+		9FA634E11A5A97FF00E9850F /* MBLEParamsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLEParamsModel.m; sourceTree = "<group>"; };
+		9FA634E21A5A97FF00E9850F /* MBStatisticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBStatisticsModel.h; sourceTree = "<group>"; };
+		9FA634E31A5A97FF00E9850F /* MBStatisticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBStatisticsModel.m; sourceTree = "<group>"; };
+		9FA634E41A5A97FF00E9850F /* MBUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBUserInfoModel.h; sourceTree = "<group>"; };
+		9FA634E51A5A97FF00E9850F /* MBUserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBUserInfoModel.m; sourceTree = "<group>"; };
+		9FA634E71A5A97FF00E9850F /* MBDataBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDataBuilder.h; sourceTree = "<group>"; };
+		9FA634E81A5A97FF00E9850F /* MBDataBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDataBuilder.m; sourceTree = "<group>"; };
+		9FA634E91A5A97FF00E9850F /* MBDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDataReader.h; sourceTree = "<group>"; };
+		9FA634EA1A5A97FF00E9850F /* MBDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDataReader.m; sourceTree = "<group>"; };
+		9FA634EB1A5A97FF00E9850F /* MBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHelper.h; sourceTree = "<group>"; };
+		9FA634EC1A5A97FF00E9850F /* MBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHelper.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9F98292A1A53B6190076AA4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F9829571A53B6300076AA4A /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F9829431A53B6190076AA4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9F9829241A53B6190076AA4A = {
+			isa = PBXGroup;
+			children = (
+				9F98292F1A53B6190076AA4A /* MiBandApiSample */,
+				9F9829491A53B6190076AA4A /* MiBandApiSampleTests */,
+				9F98292E1A53B6190076AA4A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9F98292E1A53B6190076AA4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F98292D1A53B6190076AA4A /* MiBandApiSample.app */,
+				9F9829461A53B6190076AA4A /* MiBandApiSampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9F98292F1A53B6190076AA4A /* MiBandApiSample */ = {
+			isa = PBXGroup;
+			children = (
+				9F9829341A53B6190076AA4A /* AppDelegate.h */,
+				9F9829351A53B6190076AA4A /* AppDelegate.m */,
+				9F9829371A53B6190076AA4A /* ViewController.h */,
+				9F9829381A53B6190076AA4A /* ViewController.m */,
+				9FA634CA1A5A97FF00E9850F /* MiBand */,
+				9F98293A1A53B6190076AA4A /* Main.storyboard */,
+				9F98293D1A53B6190076AA4A /* Images.xcassets */,
+				9F98293F1A53B6190076AA4A /* LaunchScreen.xib */,
+				9F9829301A53B6190076AA4A /* Supporting Files */,
+			);
+			path = MiBandApiSample;
+			sourceTree = "<group>";
+		};
+		9F9829301A53B6190076AA4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F9829311A53B6190076AA4A /* Info.plist */,
+				9F9829321A53B6190076AA4A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F9829491A53B6190076AA4A /* MiBandApiSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				9F9829561A53B6300076AA4A /* CoreBluetooth.framework */,
+				9F98294C1A53B6190076AA4A /* MiBandApiSampleTests.m */,
+				9F98294A1A53B6190076AA4A /* Supporting Files */,
+			);
+			path = MiBandApiSampleTests;
+			sourceTree = "<group>";
+		};
+		9F98294A1A53B6190076AA4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F98294B1A53B6190076AA4A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9FA634CA1A5A97FF00E9850F /* MiBand */ = {
+			isa = PBXGroup;
+			children = (
+				9FA634CB1A5A97FF00E9850F /* include */,
+				9FA634D11A5A97FF00E9850F /* model */,
+				9FA634E61A5A97FF00E9850F /* util */,
+			);
+			name = MiBand;
+			path = ../../MiBand;
+			sourceTree = "<group>";
+		};
+		9FA634CB1A5A97FF00E9850F /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9FA634D01A5A97FF00E9850F /* MiBand.h */,
+				9FA634CC1A5A97FF00E9850F /* MBCentralManager.h */,
+				9FA634CD1A5A97FF00E9850F /* MBCentralManager.m */,
+				9FA634CE1A5A97FF00E9850F /* MBPeripheral.h */,
+				9FA634CF1A5A97FF00E9850F /* MBPeripheral.m */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9FA634D11A5A97FF00E9850F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9FA634D21A5A97FF00E9850F /* MBActivityDataFragmentModel.h */,
+				9FA634D31A5A97FF00E9850F /* MBActivityDataFragmentModel.m */,
+				9FA634D41A5A97FF00E9850F /* MBActivityDataModel.h */,
+				9FA634D51A5A97FF00E9850F /* MBActivityDataModel.m */,
+				9FA634D61A5A97FF00E9850F /* MBActivityDataReader.h */,
+				9FA634D71A5A97FF00E9850F /* MBActivityDataReader.m */,
+				9FA634D81A5A97FF00E9850F /* MBAlarmClockModel.h */,
+				9FA634D91A5A97FF00E9850F /* MBAlarmClockModel.m */,
+				9FA634DA1A5A97FF00E9850F /* MBBatteryInfoModel.h */,
+				9FA634DB1A5A97FF00E9850F /* MBBatteryInfoModel.m */,
+				9FA634DC1A5A97FF00E9850F /* MBDateTimeModel.h */,
+				9FA634DD1A5A97FF00E9850F /* MBDateTimeModel.m */,
+				9FA634DE1A5A97FF00E9850F /* MBDeviceInfoModel.h */,
+				9FA634DF1A5A97FF00E9850F /* MBDeviceInfoModel.m */,
+				9FA634E01A5A97FF00E9850F /* MBLEParamsModel.h */,
+				9FA634E11A5A97FF00E9850F /* MBLEParamsModel.m */,
+				9FA634E21A5A97FF00E9850F /* MBStatisticsModel.h */,
+				9FA634E31A5A97FF00E9850F /* MBStatisticsModel.m */,
+				9FA634E41A5A97FF00E9850F /* MBUserInfoModel.h */,
+				9FA634E51A5A97FF00E9850F /* MBUserInfoModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		9FA634E61A5A97FF00E9850F /* util */ = {
+			isa = PBXGroup;
+			children = (
+				9FA634E71A5A97FF00E9850F /* MBDataBuilder.h */,
+				9FA634E81A5A97FF00E9850F /* MBDataBuilder.m */,
+				9FA634E91A5A97FF00E9850F /* MBDataReader.h */,
+				9FA634EA1A5A97FF00E9850F /* MBDataReader.m */,
+				9FA634EB1A5A97FF00E9850F /* MBHelper.h */,
+				9FA634EC1A5A97FF00E9850F /* MBHelper.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9F98292C1A53B6190076AA4A /* MiBandApiSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F9829501A53B6190076AA4A /* Build configuration list for PBXNativeTarget "MiBandApiSample" */;
+			buildPhases = (
+				9F9829291A53B6190076AA4A /* Sources */,
+				9F98292A1A53B6190076AA4A /* Frameworks */,
+				9F98292B1A53B6190076AA4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MiBandApiSample;
+			productName = MiBandApiSample;
+			productReference = 9F98292D1A53B6190076AA4A /* MiBandApiSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9F9829451A53B6190076AA4A /* MiBandApiSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F9829531A53B6190076AA4A /* Build configuration list for PBXNativeTarget "MiBandApiSampleTests" */;
+			buildPhases = (
+				9F9829421A53B6190076AA4A /* Sources */,
+				9F9829431A53B6190076AA4A /* Frameworks */,
+				9F9829441A53B6190076AA4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F9829481A53B6190076AA4A /* PBXTargetDependency */,
+			);
+			name = MiBandApiSampleTests;
+			productName = MiBandApiSampleTests;
+			productReference = 9F9829461A53B6190076AA4A /* MiBandApiSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9F9829251A53B6190076AA4A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Tendyron Corporation";
+				TargetAttributes = {
+					9F98292C1A53B6190076AA4A = {
+						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					9F9829451A53B6190076AA4A = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 9F98292C1A53B6190076AA4A;
+					};
+				};
+			};
+			buildConfigurationList = 9F9829281A53B6190076AA4A /* Build configuration list for PBXProject "MiBandApiSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9F9829241A53B6190076AA4A;
+			productRefGroup = 9F98292E1A53B6190076AA4A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F98292C1A53B6190076AA4A /* MiBandApiSample */,
+				9F9829451A53B6190076AA4A /* MiBandApiSampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9F98292B1A53B6190076AA4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F98293C1A53B6190076AA4A /* Main.storyboard in Resources */,
+				9F9829411A53B6190076AA4A /* LaunchScreen.xib in Resources */,
+				9F98293E1A53B6190076AA4A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F9829441A53B6190076AA4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9F9829291A53B6190076AA4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FA634F41A5A97FF00E9850F /* MBDateTimeModel.m in Sources */,
+				9FA634F71A5A97FF00E9850F /* MBStatisticsModel.m in Sources */,
+				9FA634ED1A5A97FF00E9850F /* MBCentralManager.m in Sources */,
+				9FA634F51A5A97FF00E9850F /* MBDeviceInfoModel.m in Sources */,
+				9FA634EF1A5A97FF00E9850F /* MBActivityDataFragmentModel.m in Sources */,
+				9FA634F81A5A97FF00E9850F /* MBUserInfoModel.m in Sources */,
+				9FA634F31A5A97FF00E9850F /* MBBatteryInfoModel.m in Sources */,
+				9FA634F11A5A97FF00E9850F /* MBActivityDataReader.m in Sources */,
+				9FA634EE1A5A97FF00E9850F /* MBPeripheral.m in Sources */,
+				9F9829391A53B6190076AA4A /* ViewController.m in Sources */,
+				9FA634F91A5A97FF00E9850F /* MBDataBuilder.m in Sources */,
+				9F9829361A53B6190076AA4A /* AppDelegate.m in Sources */,
+				9FA634FB1A5A97FF00E9850F /* MBHelper.m in Sources */,
+				9FA634F01A5A97FF00E9850F /* MBActivityDataModel.m in Sources */,
+				9FA634F61A5A97FF00E9850F /* MBLEParamsModel.m in Sources */,
+				9FA634FA1A5A97FF00E9850F /* MBDataReader.m in Sources */,
+				9FA634F21A5A97FF00E9850F /* MBAlarmClockModel.m in Sources */,
+				9F9829331A53B6190076AA4A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F9829421A53B6190076AA4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F98294D1A53B6190076AA4A /* MiBandApiSampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F9829481A53B6190076AA4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F98292C1A53B6190076AA4A /* MiBandApiSample */;
+			targetProxy = 9F9829471A53B6190076AA4A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9F98293A1A53B6190076AA4A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F98293B1A53B6190076AA4A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9F98293F1A53B6190076AA4A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F9829401A53B6190076AA4A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9F98294E1A53B6190076AA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9F98294F1A53B6190076AA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9F9829511A53B6190076AA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MiBandApiSample",
+				);
+				INFOPLIST_FILE = MiBandApiSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9F9829521A53B6190076AA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MiBandApiSample",
+				);
+				INFOPLIST_FILE = MiBandApiSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9F9829541A53B6190076AA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MiBandApiSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiBandApiSample.app/MiBandApiSample";
+			};
+			name = Debug;
+		};
+		9F9829551A53B6190076AA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MiBandApiSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiBandApiSample.app/MiBandApiSample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9F9829281A53B6190076AA4A /* Build configuration list for PBXProject "MiBandApiSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F98294E1A53B6190076AA4A /* Debug */,
+				9F98294F1A53B6190076AA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F9829501A53B6190076AA4A /* Build configuration list for PBXNativeTarget "MiBandApiSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F9829511A53B6190076AA4A /* Debug */,
+				9F9829521A53B6190076AA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F9829531A53B6190076AA4A /* Build configuration list for PBXNativeTarget "MiBandApiSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F9829541A53B6190076AA4A /* Debug */,
+				9F9829551A53B6190076AA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9F9829251A53B6190076AA4A /* Project object */;
+}
