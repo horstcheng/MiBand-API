@@ -15,9 +15,9 @@ static char *const kQueueLabel = "com.esoftmobile.miband";
 @interface MBCentralManager ()<CBCentralManagerDelegate>
 
 @property (nonatomic, strong) CBCentralManager *cbCentralManager;
+@property (nonatomic, strong) NSMutableArray *discoveredPeripherals;
 @property (nonatomic, copy) MBDiscoverPeripheralBlock discoverPeripheralBlock;
 @property (nonatomic, copy) MBConnectResultBlock connectResultBlock;
-@property (nonatomic, strong) NSMutableArray *discoveredPeripherals;
 
 @end
 
@@ -141,7 +141,6 @@ static char *const kQueueLabel = "com.esoftmobile.miband";
             default:
                 break;
         }
-
     });
 }
 
@@ -189,7 +188,6 @@ static char *const kQueueLabel = "com.esoftmobile.miband";
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)cbPeripheral error:(NSError *)error {
-    NSLog(@"%s\t%d %@", __FUNCTION__, __LINE__, error);
     if (self.disconnectedBlock) {
         __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_main_queue(), ^{
