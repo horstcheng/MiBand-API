@@ -68,11 +68,7 @@
 }
 
 - (BOOL)isConnected {
-    BOOL result = NO;
-    if (self.cbPeripheral.state == CBPeripheralStateConnected) {
-        result = YES;
-    }
-    return result;
+    return self.cbPeripheral.state == CBPeripheralStateConnected;
 }
 
 - (NSString *)UUIDStringForType:(MBCharacteristicType)type {
