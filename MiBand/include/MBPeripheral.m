@@ -27,11 +27,11 @@
 
 @property (nonatomic, strong) MBActivityDataReader *activityDataReader;
 @property (nonatomic, strong) NSMutableDictionary *characteristicDictionary;
+@property (nonatomic, strong) NSMutableArray *callbackBlocks;
 @property (nonatomic, copy) MBDiscoverServicesResultBlock discoverServicesBlock;
 @property (nonatomic, copy) MBDiscoverCharacteristicsResultBlock discoverCharacteristicsBlock;
 @property (nonatomic, copy) MBRealtimeStepsResultBlock realtimeStepsBlock;
 @property (nonatomic, copy) MBActivityDataHandleBlock activityDataBlock;
-@property (nonatomic, strong) NSMutableArray *callbackBlocks;
 
 @end
 
