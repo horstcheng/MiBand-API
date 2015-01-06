@@ -86,35 +86,13 @@
     self.controlPanel.hidden = NO;
     [self.tableView reloadData];
     
-    __weak typeof(self) this = self;
     [self.peripheral setLowLEParamsWithBlock:^(NSError *error) {
         NSLog(@"设置LE Params 成功 %@", error);
-        
-        MBUserInfoModel *me = [[MBUserInfoModel alloc] init];
-        me.uid = 614891;
-        me.alias = @"Hacker";
-        me.age = 26;
-        me.height = 173;
-        me.weight = 55;
-        me.gender = 1;
-        [this.peripheral bindingWithUser:me withBlock:^(NSError *error) {
-            NSLog(@"绑定用户信息成功 %@  %@", me, error);
-            
-            MBDateTimeModel *datetime = [[MBDateTimeModel alloc] init];
-            datetime.newerDate = [NSDate date];
-            [this.peripheral setDateTimeInfo:datetime withBlock:^(NSError *error) {
-                NSLog(@"设置时间成功 %@",error);
-                
-                [this.peripheral readRealtimeStepsWithBlock:^(NSUInteger steps, NSError *error) {
-                    this.realtimeStepsLabel.text = [NSString stringWithFormat:@"%tu", steps];
-                }];
-            }];
-        }];
     }];
 }
 
 #pragma mark - Actions / APIs
-- (IBAction)bindingUser:(id)sender {
+- (IBAction)bindingUserInfo:(id)sender {
     MBUserInfoModel *me =
     [[MBUserInfoModel alloc] initWithName:@"Hacker"
                                       uid:614891
@@ -123,13 +101,23 @@
                                    height:173
                                    weight:55
                                      type:MBAuthTypeNormal];
-    
-    MBPeripheral *peripheral = self.peripheral;
-    [peripheral bindingWithUser:me withBlock:^(NSError *error) {
+    __weak typeof(self) this = self;
+    [self.peripheral bindingWithUser:me withBlock:^(NSError *error) {
         NSLog(@"绑定用户信息成功 %@  %@", me, error);
+        
+        MBDateTimeModel *datetime = [[MBDateTimeModel alloc] init];
+        datetime.newerDate = [NSDate date];
+        [this.peripheral setDateTimeInfo:datetime withBlock:^(NSError *error) {
+            NSLog(@"设置时间成功 %@",error);
+            
+            [this.peripheral readRealtimeStepsWithBlock:^(NSUInteger steps, NSError *error) {
+                this.realtimeStepsLabel.text = [NSString stringWithFormat:@"%tu", steps];
+            }];
+        }];
+
     }];
 }
-- (IBAction)getStatistics:(id)sender {
+- (IBAction)getDeviceStatistics:(id)sender {
     [self.peripheral readStatisticsWithBlock:^(MBStatisticsModel *statistics, NSError *error) {
         NSLog(@"%@ %@", statistics, error);
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:[statistics description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -161,7 +149,7 @@
     }];
 }
 
-- (IBAction)getDateTime:(id)sender {
+- (IBAction)subscribeRealtimeSteps:(id)sender {
     [self.peripheral subscribeRealtimeStepsWithBlock:^(NSUInteger steps, NSError *error) {
         self.realtimeStepsLabel.text = [NSString stringWithFormat:@"%tu", steps];
     }];
@@ -194,7 +182,7 @@
     
 }
 
-- (IBAction)handChanged:(UISegmentedControl *)segmentControl {
+- (IBAction)wearPositionChanged:(UISegmentedControl *)segmentControl {
     [self.peripheral setWearPosition:segmentControl.selectedSegmentIndex withBlock:^(NSError *error) {
         NSLog(@"error %@", error);
     }];
@@ -250,7 +238,6 @@
 }
 
 - (IBAction)getLEParams:(id)sender {
-    
     [self.peripheral readLEParamsWithBlock:^(MBLEParamsModel *leparams, NSError *error) {
         NSLog(@"%@ %@", leparams, error);
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:[leparams description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -266,8 +253,6 @@
     model.index = 0;
     model.enabled = YES;
     model.date = date;
-    NSLog(@"date %@", date);
-    NSLog(@"%@", [model date]);
     [self.peripheral setAlarmClock:model withBlock:^(NSError *error) {
         NSLog(@"设定闹钟成功 %@", error);
     }];

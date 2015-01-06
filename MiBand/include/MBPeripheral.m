@@ -105,9 +105,6 @@
 }
 
 - (void)executeReadValueCallbackWithData:(NSData *)data withError:(NSError *)error {
-    if (error) {
-        NSLog(@"error %@", [error localizedDescription]);
-    }
     MBPeripheralReadValueResultBlock block = [self.callbackBlocks firstObject];
     [self.callbackBlocks removeObjectAtIndex:0];
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -116,15 +113,11 @@
 }
 
 - (void)writeValue:(NSData *)data forCharacteristic:(CBCharacteristic *)characteristic withBlock:(MBPeripheralWriteValueResultBlock)block {
-    NSLog(@"%s\t%d %@", __FUNCTION__, __LINE__, data);
     [self.callbackBlocks addObject:block];
     [self.cbPeripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
 }
 
 - (void)executeWriteValueCallbackWithError:(NSError *)error {
-    if (error) {
-        NSLog(@"error %@", [error localizedDescription]);
-    }
     MBPeripheralWriteValueResultBlock block = [self.callbackBlocks firstObject];
     [self.callbackBlocks removeObjectAtIndex:0];
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -133,49 +126,61 @@
 }
 
 #pragma mark -
-- (void)handleNotifyCharaterisitc:(CBCharacteristic *)characteristic withError:(NSError *)error{
+- (void)handleNotifyCharacteristic:(CBCharacteristic *)characteristic withError:(NSError *)error {
+    NSString *UUID = [characteristic.UUID UUIDString];
+    NSString *realtimeStepsUUID = [self UUIDStringForType:MBCharacteristicTypeRealtimeSteps];
+    NSString *activityDataUUID = [self UUIDStringForType:MBCharacteristicTypeActivityData];
+    NSString *notificationUUID = [self UUIDStringForType:MBCharacteristicTypeNotification];
+    NSData *data = characteristic.value;
     
-    NSString *uuidString = [characteristic.UUID UUIDString];
-    //步行
-    if ([uuidString isEqualToString:[self UUIDStringForType:MBCharacteristicTypeRealtimeSteps]]) {
-        if (error) {
-            if (self.realtimeStepsBlock) {
-                return self.realtimeStepsBlock(0, error);
+    if ([UUID isEqualToString:realtimeStepsUUID]) {
+        [self handleRealtimeStepsNotifyData:data withError:error];
+    } else if ([UUID isEqualToString:activityDataUUID]) {
+        [self handleActivityDataNotifyData:data withError:error];
+    } else if ([UUID isEqualToString:notificationUUID]) {
+        NSLog(@"FF03: %@", characteristic.value);
+    }
+}
+
+- (void)handleRealtimeStepsNotifyData:(NSData *)data withError:(NSError *)error {
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (!data.length || error) {
+            if (weakSelf.realtimeStepsBlock) {
+                return weakSelf.realtimeStepsBlock(0, error);
             }
         }
-        NSLog(@"realtimeSteps: %@", characteristic.value);
-        MBDataReader *reader = [[MBDataReader alloc] initWithData:characteristic.value];
+        MBDataReader *reader = [[MBDataReader alloc] initWithData:data];
         NSUInteger steps = [reader readInt:2];
-        if (self.realtimeStepsBlock) {
-            self.realtimeStepsBlock(steps, error);
+        if (weakSelf.realtimeStepsBlock) {
+            weakSelf.realtimeStepsBlock(steps, error);
         }
-    } else if ([uuidString isEqualToString:[self UUIDStringForType:MBCharacteristicTypeActivityData]]) {
-        if (error) {
-            if (self.activityDataBlock) {
-                __weak typeof(self) weakSelf = self;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    weakSelf.activityDataBlock(nil, error);
-                    weakSelf.activityDataBlock = nil;
-                });
-            }
+    });
+}
+
+- (void)handleActivityDataNotifyData:(NSData *)data withError:(NSError *)error {
+    if (!data.length || error) {
+        if (self.activityDataBlock) {
+            __weak typeof(self) weakSelf = self;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakSelf.activityDataBlock(nil, error);
+                weakSelf.activityDataBlock = nil;
+            });
+        }
+        self.activityDataReader = nil;
+    }
+    [self.activityDataReader appendData:data];
+    if ([self.activityDataReader isDone]) {
+        if (self.activityDataBlock) {
+            __weak typeof(self) weakSelf = self;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakSelf.activityDataBlock([weakSelf.activityDataReader activityDataFragmentList], nil);
+                weakSelf.activityDataBlock = nil;
+                weakSelf.activityDataReader = nil;
+            });
+        } else {
             self.activityDataReader = nil;
         }
-        NSLog(@"activityData: %@", characteristic.value);
-        [self.activityDataReader appendData:characteristic.value];
-        if ([self.activityDataReader isDone]) {
-            if (self.activityDataBlock) {
-                __weak typeof(self) weakSelf = self;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    weakSelf.activityDataBlock([self.activityDataReader activityDataFragmentList], nil);
-                    weakSelf.activityDataBlock = nil;
-                    weakSelf.activityDataReader = nil;
-                });
-            } else {
-                self.activityDataReader = nil;
-            }
-        }
-    } else if ([uuidString isEqualToString:[self UUIDStringForType:MBCharacteristicTypeNotification]]) {
-        NSLog(@"FF03: %@", characteristic.value);
     }
 }
 
@@ -197,7 +202,7 @@
 - (void)readUserInfoWithBlock:(void (^)(MBUserInfoModel *userInfo, NSError *error))block {
     [self readValueForCharacteristic:[self characteristicForType:MBCharacteristicTypeUserInfo]
         withBlock:^(NSData *data, NSError *error) {
-            if (error) {
+            if (!data.length || error) {
                 return block(nil, error);
             }
             MBUserInfoModel *userInfo = [[MBUserInfoModel alloc] initWithData:data];
@@ -231,55 +236,56 @@
 - (void)readDeviceInfoWithBlock:(void (^)(MBDeviceInfoModel *deviceInfo, NSError *))block {
     [self readValueForCharacteristic:[self characteristicForType:MBCharacteristicTypeDeviceInfo]
         withBlock:^(NSData *data, NSError *error) {
-            if (error) {
+            if (!data.length || error) {
                 return block(nil, error);
             }
             MBDeviceInfoModel *deviceInfo = [[MBDeviceInfoModel alloc] initWithData:data];
             block(deviceInfo, error);
-    }];
+        }];
 }
 
 - (void)readStatisticsWithBlock:(void (^)(MBStatisticsModel *statistics, NSError *error))block {
-    [self readValueForCharacteristic:[self characteristicForType:MBCharacteristicTypeStatistics] withBlock:^(NSData *data, NSError *error) {
-        if (error) {
-            return block(nil, error);
-        }
-        MBStatisticsModel *model = [[MBStatisticsModel alloc] initWithData:data];
-        block(model, error);
-    }];
+    [self readValueForCharacteristic:[self characteristicForType:MBCharacteristicTypeStatistics]
+        withBlock:^(NSData *data, NSError *error) {
+            if (!data.length || error) {
+                return block(nil, error);
+            }
+            MBStatisticsModel *model = [[MBStatisticsModel alloc] initWithData:data];
+            block(model, error);
+        }];
 }
 
 - (void)readDeviceName:(void (^)(NSString *name, NSError *error))block {
     [self readValueForCharacteristic:[self characteristicForType:MBCharacteristicTypeDeviceName]
         withBlock:^(NSData *data, NSError *error) {
-            if (error) {
+            if (!data.length || error) {
                 return block(nil, error);
             }
             NSString *name = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             block(name, error);
-    }];
+        }];
 }
 
 - (void)readBatteryInfoWithBlock:(void (^)(MBBatteryInfoModel *batteryInfo, NSError *error))block {
     [self readValueForCharacteristic:[self characteristicForType:MBCharacteristicTypeBatteryInfo]
         withBlock:^(NSData *data, NSError *error) {
-            if (error) {
+            if (!data.length || error) {
                 return block(nil, error);
             }
             MBBatteryInfoModel *batteryInfo = [[MBBatteryInfoModel alloc] initWithData:data];
             block(batteryInfo, error);
-    }];
+        }];
 }
 
 - (void)readDateTimeWithBlock:(void (^)(MBDateTimeModel *dateTime, NSError *error))block {
     [self readValueForCharacteristic:[self characteristicForType:MBCharacteristicTypeDateTime]
         withBlock:^(NSData *data, NSError *error) {
-            if (error) {
+            if (!data.length || error) {
                 return block(nil, error);
             }
             MBDateTimeModel *model = [[MBDateTimeModel alloc] initWithData:data];
             block(model, nil);
-    }];
+        }];
 }
 
 - (void)setDateTimeInfo:(MBDateTimeModel *)datetime withBlock:(MBPeripheralWriteValueResultBlock)block {
@@ -291,12 +297,12 @@
 - (void)readLEParamsWithBlock:(void (^)(MBLEParamsModel *, NSError *))block {
     [self readValueForCharacteristic:[self characteristicForType:MBCharacteristicTypeLEParams]
         withBlock:^(NSData *data, NSError *error) {
-            if (error) {
+            if (!data.length || error) {
                 return block(nil, error);
             }
             MBLEParamsModel *leparams = [[MBLEParamsModel alloc] initWithData:data];
             block(leparams, error);
-    }];
+        }];
 }
 
 - (void)setLEParams:(MBLEParamsModel *)leparams withBlock:(MBPeripheralWriteValueResultBlock)block {
@@ -368,19 +374,18 @@
            withBlock:block];
 }
 
-#pragma mark - 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
 //Data
 - (void)readRealtimeStepsWithBlock:(MBRealtimeStepsResultBlock)block {
     [self readValueForCharacteristic:[self characteristicForType:MBCharacteristicTypeRealtimeSteps]
         withBlock:^(NSData *data, NSError *error) {
-            if (error) {
+            if (!data.length || error) {
                 return block(0, error);
             }
             MBDataReader *reader = [[MBDataReader alloc] initWithData:data];
             NSUInteger steps = [reader readInt:2];
             block(steps, error);
-    }];
+        }];
 }
 
 - (void)subscribeRealtimeStepsWithBlock:(MBRealtimeStepsResultBlock)block {
@@ -399,8 +404,8 @@
                        return block(0, nil);
                    }
                    weakSelf.realtimeStepsBlock = block;
+               }];
         }];
-    }];
 }
 
 - (void)stopSubscribeRealtimeStepsWithBlock:(MBPeripheralWriteValueResultBlock)block {
@@ -432,18 +437,22 @@
         }
         MBDataBuilder *builder = [[MBDataBuilder alloc] init];
         [builder writeInt:MBControlPointFetchData bytesCount:1];
-        [weakSelf writeValue:[builder data] forCharacteristic:[weakSelf characteristicForType:MBCharacteristicTypeControl] withBlock:^(NSError *error) {
-            if (error) {
-                return block(nil, error);
-            }
-            __strong __typeof(weakSelf) strongSelf = weakSelf;
-            strongSelf.activityDataBlock = block;
-            strongSelf.activityDataReader = [[MBActivityDataReader alloc] init];
+        [weakSelf writeValue:[builder data]
+           forCharacteristic:[weakSelf characteristicForType:MBCharacteristicTypeControl]
+           withBlock:^(NSError *error) {
+               if (error) {
+                   return block(nil, error);
+               }
+               weakSelf.activityDataBlock = block;
+               weakSelf.activityDataReader = [[MBActivityDataReader alloc] init];
+           }];
         }];
-    }];
 }
 
 - (void)confirmActivityDataWithDate:(NSDate *)time withBlock:(MBPeripheralWriteValueResultBlock)block {
+    //按照正常的日期转换，如2015-1-5 17:32:21 +0000 应该为：<0a0f0105 11201500 00>，但现在年所在的位0f却变成了df。
+    //TODO: <0a0f0105 11201500 00> ----> <0adf0105 11201500 00>
+    
     MBDataBuilder *builder = [[MBDataBuilder alloc] init];
     [builder writeInt:MBControlPointConfirmData bytesCount:1];
     [builder writeDate:time];
@@ -483,9 +492,8 @@
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    NSLog(@"%s\t%d\n%@", __FUNCTION__, __LINE__,characteristic);
     if (characteristic.isNotifying) {
-        [self handleNotifyCharaterisitc:characteristic withError:error];
+        [self handleNotifyCharacteristic:characteristic withError:error];
     } else {
         if ([self.callbackBlocks count]) {
             [self executeReadValueCallbackWithData:characteristic.value withError:error];
@@ -494,14 +502,12 @@
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
-    NSLog(@"%s\t%d\n%@", __FUNCTION__, __LINE__, characteristic);
     if ([self.callbackBlocks count]) {
         [self executeWriteValueCallbackWithError:error];
     }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    NSLog(@"%s\t%d\n%@", __FUNCTION__, __LINE__, characteristic);
     if ([self.callbackBlocks count]) {
         [self executeWriteValueCallbackWithError:error];
     }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="v3i-4d-jMn">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -111,7 +110,7 @@
                                             <segment title="右手"/>
                                         </segments>
                                         <connections>
-                                            <action selector="handChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="chX-g2-cCc"/>
+                                            <action selector="wearPositionChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="VA9-2X-DaO"/>
                                         </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGx-Ev-4x4">
@@ -156,7 +155,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="bindingUser:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BCp-cz-wqc"/>
+                                            <action selector="bindingUserInfo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FYi-vk-dls"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8R-UV-PiY">
@@ -204,7 +203,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="getDateTime:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FAm-Aa-9qW"/>
+                                            <action selector="subscribeRealtimeSteps:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qwi-pr-v3K"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdo-vl-iEy">
@@ -236,7 +235,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="getStatistics:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EV8-Pw-BBF"/>
+                                            <action selector="getDeviceStatistics:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="X97-dE-g9x"/>
                                         </connections>
                                     </button>
                                 </subviews>
