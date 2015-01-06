@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F76C1BD1A5BA68C0049ABD1 /* MBCategorys.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F76C1BC1A5BA68C0049ABD1 /* MBCategorys.m */; };
 		9F8EBCF81A5B7DB800567D83 /* MBActivityDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8EBCF71A5B7DB800567D83 /* MBActivityDataReader.m */; };
 		9F9829331A53B6190076AA4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9829321A53B6190076AA4A /* main.m */; };
 		9F9829361A53B6190076AA4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9829351A53B6190076AA4A /* AppDelegate.m */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F76C1BB1A5BA68C0049ABD1 /* MBCategorys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCategorys.h; sourceTree = "<group>"; };
+		9F76C1BC1A5BA68C0049ABD1 /* MBCategorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCategorys.m; sourceTree = "<group>"; };
 		9F8EBCF61A5B7DB800567D83 /* MBActivityDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBActivityDataReader.h; sourceTree = "<group>"; };
 		9F8EBCF71A5B7DB800567D83 /* MBActivityDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBActivityDataReader.m; sourceTree = "<group>"; };
 		9F98292D1A53B6190076AA4A /* MiBandApiSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiBandApiSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +232,8 @@
 				9F8EBCF71A5B7DB800567D83 /* MBActivityDataReader.m */,
 				9FA634EB1A5A97FF00E9850F /* MBHelper.h */,
 				9FA634EC1A5A97FF00E9850F /* MBHelper.m */,
+				9F76C1BB1A5BA68C0049ABD1 /* MBCategorys.h */,
+				9F76C1BC1A5BA68C0049ABD1 /* MBCategorys.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				9F9829391A53B6190076AA4A /* ViewController.m in Sources */,
 				9FA634F91A5A97FF00E9850F /* MBDataBuilder.m in Sources */,
 				9F9829361A53B6190076AA4A /* AppDelegate.m in Sources */,
+				9F76C1BD1A5BA68C0049ABD1 /* MBCategorys.m in Sources */,
 				9FA634FB1A5A97FF00E9850F /* MBHelper.m in Sources */,
 				9FA634F01A5A97FF00E9850F /* MBActivityDataModel.m in Sources */,
 				9FA634F61A5A97FF00E9850F /* MBLEParamsModel.m in Sources */,

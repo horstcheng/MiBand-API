@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "MiBand.h"
 
-
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -27,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
     self.controlPanel.hidden = YES;
     

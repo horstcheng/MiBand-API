@@ -8,6 +8,7 @@
 
 #import "MBPeripheral.h"
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "MBCategorys.h"
 
 #import "MBDataBuilder.h"
 #import "MBDataReader.h"
@@ -54,17 +55,7 @@
 }
 
 - (NSString *)identifier {
-    if ([_cbPeripheral respondsToSelector:@selector(identifier)]) {
-        return [_cbPeripheral.identifier UUIDString];
-    } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        CFUUIDRef uuid = _cbPeripheral.UUID;
-        CFStringRef string = CFUUIDCreateString(kCFAllocatorDefault, uuid);
-        NSString *identifier = (NSString *)CFBridgingRelease(string);
-        return identifier;
-#pragma clang diagnostic pop
-    }
+    return [_cbPeripheral peripheralIdentifier];
 }
 
 - (BOOL)isConnected {
@@ -127,7 +118,7 @@
 
 #pragma mark -
 - (void)handleNotifyCharacteristic:(CBCharacteristic *)characteristic withError:(NSError *)error {
-    NSString *UUID = [characteristic.UUID UUIDString];
+    NSString *UUID = [characteristic.UUID stringValue];
     NSString *realtimeStepsUUID = [self UUIDStringForType:MBCharacteristicTypeRealtimeSteps];
     NSString *activityDataUUID = [self UUIDStringForType:MBCharacteristicTypeActivityData];
     NSString *notificationUUID = [self UUIDStringForType:MBCharacteristicTypeNotification];
@@ -375,7 +366,6 @@
 }
 
 #pragma mark -
-//Data
 - (void)readRealtimeStepsWithBlock:(MBRealtimeStepsResultBlock)block {
     [self readValueForCharacteristic:[self characteristicForType:MBCharacteristicTypeRealtimeSteps]
         withBlock:^(NSData *data, NSError *error) {
@@ -475,7 +465,7 @@
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     if ([service isEqual:self.service]) {
         for (CBCharacteristic *characteristic in service.characteristics) {
-            NSString *identifier = [characteristic.UUID UUIDString];
+            NSString *identifier = [characteristic.UUID stringValue];
             self.characteristicDictionary[identifier] = characteristic;
         }
     }

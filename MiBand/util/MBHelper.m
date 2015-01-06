@@ -40,7 +40,7 @@
     return checksum;
 }
 
-+ (MLCounter)counter:(NSUInteger)count withBlock:(void (^)())counterCallback {
++ (MBCounter)counter:(NSUInteger)count withBlock:(void (^)())counterCallback {
     __block NSUInteger currentCount = 0;
     return ^void() {
         currentCount++;
