@@ -43,9 +43,9 @@ static char *const kQueueLabel = "com.esoftmobile.miband";
 }
 
 - (void)scanForMiBandWithBlock:(void (^)(MBPeripheral *, NSNumber *, NSError *))discoverPeripheralBlock {
+    NSString *serviceAddress = [NSString stringWithFormat:@"%x", MBServiceTypeDefault];
+    CBUUID *serviceUUID = [CBUUID UUIDWithString:serviceAddress];
     if ([self.cbCentralManager respondsToSelector:@selector(retrieveConnectedPeripheralsWithServices:)]) {  //iOS 7+
-        NSString *serviceAddress = [NSString stringWithFormat:@"%x", MBServiceTypeDefault];
-        CBUUID *serviceUUID = [CBUUID UUIDWithString:serviceAddress];
         NSArray *connectedPeripherals = [self.cbCentralManager retrieveConnectedPeripheralsWithServices:@[ serviceUUID ]];
         for (CBPeripheral *cbPeripheral in connectedPeripherals) {
             [self onDiscoverPeripheral:cbPeripheral RSSI:nil];
@@ -56,7 +56,7 @@ static char *const kQueueLabel = "com.esoftmobile.miband";
 
     
     self.discoverPeripheralBlock = discoverPeripheralBlock;
-    [self.cbCentralManager scanForPeripheralsWithServices:nil
+    [self.cbCentralManager scanForPeripheralsWithServices:@[ serviceUUID ]
                                                   options:@{ CBCentralManagerScanOptionAllowDuplicatesKey: @YES }];
     _scanning = YES;
 }

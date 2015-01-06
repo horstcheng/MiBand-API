@@ -149,13 +149,10 @@
 }
 
 - (IBAction)subscribeRealtimeSteps:(id)sender {
+    __weak typeof(self) this = self;
     [self.peripheral subscribeRealtimeStepsWithBlock:^(NSUInteger steps, NSError *error) {
-        self.realtimeStepsLabel.text = [NSString stringWithFormat:@"%tu", steps];
+        this.realtimeStepsLabel.text = [NSString stringWithFormat:@"%tu", steps];
     }];
-}
-
-- (IBAction)rebootMiBand:(id)sender {
-//    [self.cbPeripheral writeValue:[NSData dataFromString:@"<09>"] forCharacteristic:self.controlCharacteristic type:CBCharacteristicWriteWithResponse];
 }
 
 - (IBAction)findMiBand:(id)sender {

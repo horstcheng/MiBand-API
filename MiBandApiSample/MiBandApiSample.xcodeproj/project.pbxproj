@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F76C1BD1A5BA68C0049ABD1 /* MBCategorys.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F76C1BC1A5BA68C0049ABD1 /* MBCategorys.m */; };
+		9F76C1C21A5BBABB0049ABD1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9F76C1C11A5BBABB0049ABD1 /* README.md */; };
 		9F8EBCF81A5B7DB800567D83 /* MBActivityDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8EBCF71A5B7DB800567D83 /* MBActivityDataReader.m */; };
 		9F9829331A53B6190076AA4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9829321A53B6190076AA4A /* main.m */; };
 		9F9829361A53B6190076AA4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9829351A53B6190076AA4A /* AppDelegate.m */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		9F76C1BB1A5BA68C0049ABD1 /* MBCategorys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCategorys.h; sourceTree = "<group>"; };
 		9F76C1BC1A5BA68C0049ABD1 /* MBCategorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCategorys.m; sourceTree = "<group>"; };
+		9F76C1C11A5BBABB0049ABD1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		9F8EBCF61A5B7DB800567D83 /* MBActivityDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBActivityDataReader.h; sourceTree = "<group>"; };
 		9F8EBCF71A5B7DB800567D83 /* MBActivityDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBActivityDataReader.m; sourceTree = "<group>"; };
 		9F98292D1A53B6190076AA4A /* MiBandApiSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiBandApiSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 		9F9829301A53B6190076AA4A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9F76C1C11A5BBABB0049ABD1 /* README.md */,
 				9F9829311A53B6190076AA4A /* Info.plist */,
 				9F9829321A53B6190076AA4A /* main.m */,
 			);
@@ -345,6 +348,7 @@
 			files = (
 				9FA634F41A5A97FF00E9850F /* MBDateTimeModel.m in Sources */,
 				9FA634F71A5A97FF00E9850F /* MBStatisticsModel.m in Sources */,
+				9F76C1C21A5BBABB0049ABD1 /* README.md in Sources */,
 				9FA634ED1A5A97FF00E9850F /* MBCentralManager.m in Sources */,
 				9FA634F51A5A97FF00E9850F /* MBDeviceInfoModel.m in Sources */,
 				9FA634EF1A5A97FF00E9850F /* MBActivityDataFragmentModel.m in Sources */,

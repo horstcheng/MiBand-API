@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="v3i-4d-jMn">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -113,15 +114,6 @@
                                             <action selector="wearPositionChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="VA9-2X-DaO"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGx-Ev-4x4">
-                                        <rect key="frame" x="282" y="96" width="30" height="30"/>
-                                        <state key="normal" title="重启">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="rebootMiBand:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2Ym-Rx-qlc"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSq-zG-Y35">
                                         <rect key="frame" x="8" y="13" width="76" height="30"/>
                                         <state key="normal" title="查找">
@@ -245,6 +237,7 @@
                                     <constraint firstItem="O8e-8Y-giB" firstAttribute="top" secondItem="6M5-dT-Afi" secondAttribute="top" constant="14" id="4NZ-fP-SU8"/>
                                     <constraint firstItem="O8e-8Y-giB" firstAttribute="leading" secondItem="PSq-zG-Y35" secondAttribute="trailing" id="84h-W6-4BM"/>
                                     <constraint firstItem="JO5-C2-Vwi" firstAttribute="leading" secondItem="6M5-dT-Afi" secondAttribute="centerX" constant="5" id="88O-sC-deX"/>
+                                    <constraint firstItem="CL2-1i-oGQ" firstAttribute="top" secondItem="OXe-Ff-8IW" secondAttribute="bottom" constant="43" id="8wE-jo-y1M"/>
                                     <constraint firstItem="cpo-eD-ndV" firstAttribute="leading" secondItem="O8e-8Y-giB" secondAttribute="trailing" constant="-1" id="9S2-jo-9sE"/>
                                     <constraint firstItem="OXe-Ff-8IW" firstAttribute="top" secondItem="O8e-8Y-giB" secondAttribute="bottom" constant="16" id="9XI-TY-rZX"/>
                                     <constraint firstAttribute="trailing" secondItem="cpo-eD-ndV" secondAttribute="trailing" constant="8" id="B3L-jH-Brj"/>
@@ -253,7 +246,6 @@
                                     <constraint firstItem="XDR-bc-mD7" firstAttribute="leading" secondItem="OXe-Ff-8IW" secondAttribute="leading" constant="10" id="F6v-cs-2EN"/>
                                     <constraint firstItem="zHd-Qb-VcZ" firstAttribute="centerY" secondItem="XDR-bc-mD7" secondAttribute="centerY" id="G0D-Sg-g8B"/>
                                     <constraint firstItem="tQi-jw-hs8" firstAttribute="top" secondItem="XDR-bc-mD7" secondAttribute="bottom" constant="8" id="HYk-np-qyC"/>
-                                    <constraint firstItem="CL2-1i-oGQ" firstAttribute="top" secondItem="IGx-Ev-4x4" secondAttribute="bottom" constant="3" id="IpW-VK-1Yh"/>
                                     <constraint firstAttribute="bottom" secondItem="JO5-C2-Vwi" secondAttribute="bottom" constant="8.5" id="LX1-jB-qNx"/>
                                     <constraint firstItem="zHd-Qb-VcZ" firstAttribute="centerX" secondItem="s8R-UV-PiY" secondAttribute="centerX" id="Pix-P2-y7Z"/>
                                     <constraint firstItem="sOR-5s-6yh" firstAttribute="top" secondItem="CL2-1i-oGQ" secondAttribute="bottom" constant="8" id="SyI-c3-GoS"/>
@@ -262,22 +254,20 @@
                                     <constraint firstItem="or1-Ux-zAf" firstAttribute="top" secondItem="tQi-jw-hs8" secondAttribute="bottom" constant="8" id="VPw-cR-cXY"/>
                                     <constraint firstItem="OXe-Ff-8IW" firstAttribute="leading" secondItem="or1-Ux-zAf" secondAttribute="leading" constant="-10" id="VQD-g2-Alz"/>
                                     <constraint firstAttribute="trailing" secondItem="OXe-Ff-8IW" secondAttribute="trailing" constant="8" id="Xp8-q2-Rng"/>
-                                    <constraint firstItem="CL2-1i-oGQ" firstAttribute="trailing" secondItem="IGx-Ev-4x4" secondAttribute="trailing" constant="-7" id="YdB-Zz-JPf"/>
                                     <constraint firstItem="qA5-IT-8fw" firstAttribute="leading" secondItem="or1-Ux-zAf" secondAttribute="leading" constant="5" id="aGL-l7-z8d"/>
                                     <constraint firstAttribute="centerX" secondItem="zHd-Qb-VcZ" secondAttribute="centerX" id="ert-iy-htu"/>
                                     <constraint firstItem="qA5-IT-8fw" firstAttribute="centerY" secondItem="gdo-vl-iEy" secondAttribute="centerY" id="gpX-mQ-eLN"/>
                                     <constraint firstAttribute="centerX" secondItem="O8e-8Y-giB" secondAttribute="centerX" constant="-0.5" id="hw0-PJ-4Ka"/>
                                     <constraint firstItem="zHd-Qb-VcZ" firstAttribute="top" secondItem="CL2-1i-oGQ" secondAttribute="top" id="iVE-Ha-KoD"/>
+                                    <constraint firstItem="OXe-Ff-8IW" firstAttribute="trailing" secondItem="CL2-1i-oGQ" secondAttribute="trailing" constant="7" id="idu-0m-v9w"/>
                                     <constraint firstAttribute="bottom" secondItem="ptD-Mt-F9M" secondAttribute="bottom" constant="8" id="m6k-gC-ZHX"/>
                                     <constraint firstItem="OXe-Ff-8IW" firstAttribute="leading" secondItem="6M5-dT-Afi" secondAttribute="leading" constant="8" id="naW-w3-ufR"/>
                                     <constraint firstItem="OXe-Ff-8IW" firstAttribute="leading" secondItem="PSq-zG-Y35" secondAttribute="leading" id="oEy-wZ-aIk"/>
                                     <constraint firstItem="cpo-eD-ndV" firstAttribute="centerY" secondItem="O8e-8Y-giB" secondAttribute="centerY" id="oOB-WO-HHD"/>
                                     <constraint firstItem="CL2-1i-oGQ" firstAttribute="trailing" secondItem="sOR-5s-6yh" secondAttribute="trailing" id="olo-Wf-9AY"/>
-                                    <constraint firstItem="IGx-Ev-4x4" firstAttribute="top" secondItem="OXe-Ff-8IW" secondAttribute="bottom" constant="10" id="pac-HW-X9R"/>
                                     <constraint firstItem="O8e-8Y-giB" firstAttribute="width" secondItem="OXe-Ff-8IW" secondAttribute="width" multiplier="1:2" id="rVU-G4-OF6"/>
                                     <constraint firstAttribute="centerX" secondItem="ptD-Mt-F9M" secondAttribute="trailing" constant="5" id="uDr-nJ-tFF"/>
                                     <constraint firstItem="XDR-bc-mD7" firstAttribute="leading" secondItem="tQi-jw-hs8" secondAttribute="leading" id="wLF-3D-D7C"/>
-                                    <constraint firstItem="IGx-Ev-4x4" firstAttribute="trailing" secondItem="OXe-Ff-8IW" secondAttribute="trailing" id="x1s-IL-86D"/>
                                 </constraints>
                             </view>
                         </subviews>
