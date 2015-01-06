@@ -164,15 +164,15 @@ static char *const kQueueLabel = "com.esoftmobile.miband";
                 [weakSelf executeConnectResultBlockInMainThread:peripheral withError:error];
             } else {
                 [peripheral discoverCharacteristics:nil
-                                         forService:peripheral.service
-                                          withBlock:^(NSArray *characteristics, NSError *error) {
-                                              if (error == nil && [characteristics count] == 0) {
-                                                  error = [NSError errorWithDomain:NSCocoaErrorDomain
-                                                                              code:0
-                                                                          userInfo:@{ NSLocalizedDescriptionKey: @"No characteristics found." }];
-                                              }
-                                              [weakSelf executeConnectResultBlockInMainThread:peripheral withError:error];
-                                          }];
+                    forService:peripheral.service
+                    withBlock:^(NSArray *characteristics, NSError *error) {
+                        if (error == nil && [characteristics count] == 0) {
+                            error = [NSError errorWithDomain:NSCocoaErrorDomain
+                                                        code:0
+                                                    userInfo:@{ NSLocalizedDescriptionKey: @"No characteristics found." }];
+                        }
+                        [weakSelf executeConnectResultBlockInMainThread:peripheral withError:error];
+                    }];
             }
         }];
     }
