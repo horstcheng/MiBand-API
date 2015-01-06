@@ -1,7 +1,7 @@
 MiBand-API
 ========
 
-[小米手环](http://www.mi.com/shouhuan) iOS API. 当前 API 基于固件版本 v1.0.6.3 (手机手环 iOS 客户端 v1.0.16)，支持iOS 6+。
+[小米手环](http://www.mi.com/shouhuan) iOS API. 当前 API 基于固件版本 v1.0.6.3 (手机手环 iOS 客户端 v1.0.16)。
 
 ##使用
 工程中添加`CoreBluetooth.framework`，引入`MiBand`文件夹，`#import "MiBand"`。
