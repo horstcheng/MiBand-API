@@ -10,7 +10,7 @@
 
 @class CBPeripheral, CBService;
 @class MBCentralManager;
-@class MBUserInfoModel, MBUserInfoModel, MBBatteryInfoModel, MBLEParamsModel, MBDeviceInfoModel, MBAlarmClockModel, MBDateTimeModel, MBStatisticsModel;
+@class MBUserInfoModel, MBBatteryInfoModel, MBLEParamsModel, MBDeviceInfoModel, MBAlarmClockModel, MBDateTimeModel, MBStatisticsModel;
 
 typedef NS_ENUM(NSInteger, MBCharacteristicType) {
     MBCharacteristicTypeDeviceInfo = 0xFF01,
@@ -100,7 +100,19 @@ typedef void(^MBPeripheralWriteValueResultBlock)(NSError *error);
  */
 - (void)readUserInfoWithBlock:(void (^)(MBUserInfoModel *userInfo, NSError *error))block;
 
+/**
+ *  给手环发送消息(振动，如查找手环功能)
+ *
+ *  @param type  消息类型，Normal为振动，Call震动时间根据设置的来电提醒时长
+ *  @param block 回调函数，返回发送消息是否成功
+ */
 - (void)sendNotificationWithType:(MBNotificationType)type withBlock:(MBPeripheralWriteValueResultBlock)block;
+
+/**
+ *  停止消息(震动，一般用于停止Call类型消息)
+ *
+ *  @param block 回调函数，返回操作是否成功
+ */
 - (void)stopNotificationWithBlock:(MBPeripheralWriteValueResultBlock)block;
 
 /**
@@ -119,6 +131,11 @@ typedef void(^MBPeripheralWriteValueResultBlock)(NSError *error);
  */
 - (void)readDeviceInfoWithBlock:(void (^)(MBDeviceInfoModel *deviceInfo, NSError *error))block;
 
+/**
+ *  获取手环各种统计数据
+ *
+ *  @param block 回调函数，返回手环统计数据(MBStatisticsModel)或获取是否成功
+ */
 - (void)readStatisticsWithBlock:(void (^)(MBStatisticsModel *statistics, NSError *error))block;
 
 /**
@@ -128,10 +145,34 @@ typedef void(^MBPeripheralWriteValueResultBlock)(NSError *error);
  */
 - (void)readBatteryInfoWithBlock:(void (^)(MBBatteryInfoModel *batteryInfo, NSError *error))block;
 
+/**
+ *  设置(校准)设备时间
+ *
+ *  @param datetime 所设置的时候
+ *  @param block    回调函数，返回设置是否成功
+ */
 - (void)setDateTimeInfo:(MBDateTimeModel *)datetime withBlock:(MBPeripheralWriteValueResultBlock)block;
+
+/**
+ *  获取设备时间
+ *
+ *  @param block 回调函数，返回设备时间(MBDateTimeModel)或获取是否成功
+ */
 - (void)readDateTimeWithBlock:(void (^)(MBDateTimeModel *dateTime, NSError *error))block;
 
+/**
+ *  读取LE单元参数
+ *
+ *  @param block 回调函数，返回设备LE参数(MBLEParamsModel)或读取是否成功
+ */
 - (void)readLEParamsWithBlock:(void (^)(MBLEParamsModel *leparams, NSError *error))block;
+
+/**
+ *  设置LE参数
+ *
+ *  @param leparams LE参数
+ *  @param block    回调函数，返回设置是否成功
+ */
 - (void)setLEParams:(MBLEParamsModel *)leparams withBlock:(MBPeripheralWriteValueResultBlock)block;
 - (void)setHighLEParamsWithBlock:(MBPeripheralWriteValueResultBlock)block;
 - (void)setLowLEParamsWithBlock:(MBPeripheralWriteValueResultBlock)block;
@@ -182,7 +223,6 @@ typedef void(^MBPeripheralWriteValueResultBlock)(NSError *error);
  */
 - (void)readRealtimeStepsWithBlock:(MBRealtimeStepsResultBlock)block;
 
-- (void)enableRealtimeStepsNotification:(BOOL)isEnable withBlock:(MBPeripheralWriteValueResultBlock)block;
 /**
  *  订阅实时步数
  *
@@ -191,6 +231,12 @@ typedef void(^MBPeripheralWriteValueResultBlock)(NSError *error);
  *  @param block 回调函数，返回实时步数或获取是否成功
  */
 - (void)subscribeRealtimeStepsWithBlock:(MBRealtimeStepsResultBlock)block;
+
+/**
+ *  停止订阅实时步数通知
+ *
+ *  @param block 回调函数，返回操作是否成功
+ */
 - (void)stopSubscribeRealtimeStepsWithBlock:(MBPeripheralWriteValueResultBlock)block;
 
 /**
@@ -203,7 +249,21 @@ typedef void(^MBPeripheralWriteValueResultBlock)(NSError *error);
  */
 - (void)setGoalSteps:(NSUInteger)steps withBlock:(MBPeripheralWriteValueResultBlock)block;
 
+/**
+ *  获取活动信息
+ *
+ *  @param block 回调函数，返回活动信息(@[MBActivityDataFragmentModel, ...])或获取是否成功
+ */
 - (void)readActivityDataWithBlock:(MBActivityDataHandleBlock)block;
+
+/**
+ *  确认已接收完活动信息
+ *
+ *  TODO: 当前改时间存在偏移量，后续改进。
+ *
+ *  @param time  确认时间
+ *  @param block 回调函数，返回操作是否成功
+ */
 - (void)confirmActivityDataWithDate:(NSDate *)time withBlock:(MBPeripheralWriteValueResultBlock)block;
 
 @end

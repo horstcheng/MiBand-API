@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F8EBCF81A5B7DB800567D83 /* MBActivityDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8EBCF71A5B7DB800567D83 /* MBActivityDataReader.m */; };
 		9F9829331A53B6190076AA4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9829321A53B6190076AA4A /* main.m */; };
 		9F9829361A53B6190076AA4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9829351A53B6190076AA4A /* AppDelegate.m */; };
 		9F9829391A53B6190076AA4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9829381A53B6190076AA4A /* ViewController.m */; };
@@ -19,7 +20,6 @@
 		9FA634EE1A5A97FF00E9850F /* MBPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634CF1A5A97FF00E9850F /* MBPeripheral.m */; };
 		9FA634EF1A5A97FF00E9850F /* MBActivityDataFragmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634D31A5A97FF00E9850F /* MBActivityDataFragmentModel.m */; };
 		9FA634F01A5A97FF00E9850F /* MBActivityDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634D51A5A97FF00E9850F /* MBActivityDataModel.m */; };
-		9FA634F11A5A97FF00E9850F /* MBActivityDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634D71A5A97FF00E9850F /* MBActivityDataReader.m */; };
 		9FA634F21A5A97FF00E9850F /* MBAlarmClockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634D91A5A97FF00E9850F /* MBAlarmClockModel.m */; };
 		9FA634F31A5A97FF00E9850F /* MBBatteryInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634DB1A5A97FF00E9850F /* MBBatteryInfoModel.m */; };
 		9FA634F41A5A97FF00E9850F /* MBDateTimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA634DD1A5A97FF00E9850F /* MBDateTimeModel.m */; };
@@ -43,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F8EBCF61A5B7DB800567D83 /* MBActivityDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBActivityDataReader.h; sourceTree = "<group>"; };
+		9F8EBCF71A5B7DB800567D83 /* MBActivityDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBActivityDataReader.m; sourceTree = "<group>"; };
 		9F98292D1A53B6190076AA4A /* MiBandApiSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiBandApiSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F9829311A53B6190076AA4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F9829321A53B6190076AA4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -66,8 +68,6 @@
 		9FA634D31A5A97FF00E9850F /* MBActivityDataFragmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBActivityDataFragmentModel.m; sourceTree = "<group>"; };
 		9FA634D41A5A97FF00E9850F /* MBActivityDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBActivityDataModel.h; sourceTree = "<group>"; };
 		9FA634D51A5A97FF00E9850F /* MBActivityDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBActivityDataModel.m; sourceTree = "<group>"; };
-		9FA634D61A5A97FF00E9850F /* MBActivityDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBActivityDataReader.h; sourceTree = "<group>"; };
-		9FA634D71A5A97FF00E9850F /* MBActivityDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBActivityDataReader.m; sourceTree = "<group>"; };
 		9FA634D81A5A97FF00E9850F /* MBAlarmClockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAlarmClockModel.h; sourceTree = "<group>"; };
 		9FA634D91A5A97FF00E9850F /* MBAlarmClockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAlarmClockModel.m; sourceTree = "<group>"; };
 		9FA634DA1A5A97FF00E9850F /* MBBatteryInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBBatteryInfoModel.h; sourceTree = "<group>"; };
@@ -200,8 +200,6 @@
 				9FA634D31A5A97FF00E9850F /* MBActivityDataFragmentModel.m */,
 				9FA634D41A5A97FF00E9850F /* MBActivityDataModel.h */,
 				9FA634D51A5A97FF00E9850F /* MBActivityDataModel.m */,
-				9FA634D61A5A97FF00E9850F /* MBActivityDataReader.h */,
-				9FA634D71A5A97FF00E9850F /* MBActivityDataReader.m */,
 				9FA634D81A5A97FF00E9850F /* MBAlarmClockModel.h */,
 				9FA634D91A5A97FF00E9850F /* MBAlarmClockModel.m */,
 				9FA634DA1A5A97FF00E9850F /* MBBatteryInfoModel.h */,
@@ -227,6 +225,8 @@
 				9FA634E81A5A97FF00E9850F /* MBDataBuilder.m */,
 				9FA634E91A5A97FF00E9850F /* MBDataReader.h */,
 				9FA634EA1A5A97FF00E9850F /* MBDataReader.m */,
+				9F8EBCF61A5B7DB800567D83 /* MBActivityDataReader.h */,
+				9F8EBCF71A5B7DB800567D83 /* MBActivityDataReader.m */,
 				9FA634EB1A5A97FF00E9850F /* MBHelper.h */,
 				9FA634EC1A5A97FF00E9850F /* MBHelper.m */,
 			);
@@ -345,8 +345,8 @@
 				9FA634EF1A5A97FF00E9850F /* MBActivityDataFragmentModel.m in Sources */,
 				9FA634F81A5A97FF00E9850F /* MBUserInfoModel.m in Sources */,
 				9FA634F31A5A97FF00E9850F /* MBBatteryInfoModel.m in Sources */,
-				9FA634F11A5A97FF00E9850F /* MBActivityDataReader.m in Sources */,
 				9FA634EE1A5A97FF00E9850F /* MBPeripheral.m in Sources */,
+				9F8EBCF81A5B7DB800567D83 /* MBActivityDataReader.m in Sources */,
 				9F9829391A53B6190076AA4A /* ViewController.m in Sources */,
 				9FA634F91A5A97FF00E9850F /* MBDataBuilder.m in Sources */,
 				9F9829361A53B6190076AA4A /* AppDelegate.m in Sources */,

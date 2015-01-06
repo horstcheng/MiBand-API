@@ -1,3 +1,11 @@
+//
+//  MBActivityDataFragmentModel.m
+//  MiBandApiSample
+//
+//  Created by TracyYih on 15/1/2.
+//  Copyright (c) 2015年 esoftmobile.com. All rights reserved.
+//
+
 #import "MBActivityDataFragmentModel.h"
 
 @implementation MBActivityDataFragmentModel
