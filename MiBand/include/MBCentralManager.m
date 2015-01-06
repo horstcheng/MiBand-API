@@ -43,12 +43,17 @@ static char *const kQueueLabel = "com.esoftmobile.miband";
 }
 
 - (void)scanForMiBandWithBlock:(void (^)(MBPeripheral *, NSNumber *, NSError *))discoverPeripheralBlock {
-    NSString *serviceAddress = [NSString stringWithFormat:@"%x", MBServiceTypeDefault];
-    CBUUID *serviceUUID = [CBUUID UUIDWithString:serviceAddress];
-    NSArray *connectedPeripherals = [self.cbCentralManager retrieveConnectedPeripheralsWithServices:@[ serviceUUID ]];
-    for (CBPeripheral *cbPeripheral in connectedPeripherals) {
-        [self onDiscoverPeripheral:cbPeripheral RSSI:nil];
+    if ([self.cbCentralManager respondsToSelector:@selector(retrieveConnectedPeripheralsWithServices:)]) {  //iOS 7+
+        NSString *serviceAddress = [NSString stringWithFormat:@"%x", MBServiceTypeDefault];
+        CBUUID *serviceUUID = [CBUUID UUIDWithString:serviceAddress];
+        NSArray *connectedPeripherals = [self.cbCentralManager retrieveConnectedPeripheralsWithServices:@[ serviceUUID ]];
+        for (CBPeripheral *cbPeripheral in connectedPeripherals) {
+            [self onDiscoverPeripheral:cbPeripheral RSSI:nil];
+        }
+    } else {
+        [self.cbCentralManager retrieveConnectedPeripherals];
     }
+
     
     self.discoverPeripheralBlock = discoverPeripheralBlock;
     [self.cbCentralManager scanForPeripheralsWithServices:nil
@@ -197,5 +202,10 @@ static char *const kQueueLabel = "com.esoftmobile.miband";
     }
 }
 
+- (void)centralManager:(CBCentralManager *)central didRetrieveConnectedPeripherals:(NSArray *)peripherals {
+    for (CBPeripheral *cbPeripheral in peripherals) {
+        [self onDiscoverPeripheral:cbPeripheral RSSI:nil];
+    }
+}
 
 @end
