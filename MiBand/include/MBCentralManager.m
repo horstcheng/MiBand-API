@@ -51,7 +51,7 @@ static char *const kQueueLabel = "com.esoftmobile.miband";
             [self onDiscoverPeripheral:cbPeripheral RSSI:nil];
         }
     } else {
-        [self.cbCentralManager retrieveConnectedPeripherals];
+        [self.cbCentralManager retrieveConnectedPeripheralsWithServices:@[ serviceUUID ]];
     }
 
     
